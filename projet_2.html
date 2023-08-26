@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: #eee;
+            font-size: 16px;
+        }
+
+        .center {
+            position: relative;
+            width: 2rem;
+            height: 2rem;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        .ball {
+            fill: red;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flèches SVG</title>
+</head>
+
+<body>
+    <div class="center">
+        <svg width="300" height="300" viewBox="0 0 300 300">
+            <!-- Flèche Haut -->
+            <path id="arrowUp" d="M 150,150 L 150,10" stroke="black" fill="none"></path>
+            <circle class="ball" r="3">
+                <animateMotion repeatCount="indefinite" dur="2s" keyPoints="0;1" keyTimes="0;1">
+                    <mpath href="#arrowUp" />
+                </animateMotion>
+            </circle>
+
+            <!-- Flèche Bas Droite -->
+            <path id="arrowBottomRight" d="M 150,150 L 280,280" stroke="black" fill="none"></path>
+            <circle class="ball" r="3">
+                <animateMotion repeatCount="indefinite" dur="2s" keyPoints="0;1" keyTimes="0;1">
+                    <mpath href="#arrowBottomRight" />
+                </animateMotion>
+            </circle>
+
+            <!-- Flèche Bas Gauche -->
+            <path id="arrowBottomLeft" d="M 150,150 L 20,280" stroke="black" fill="none"></path>
+            <circle class="ball" r="3">
+                <animateMotion repeatCount="indefinite" dur="2s" keyPoints="0;1" keyTimes="0;1">
+                    <mpath href="#arrowBottomLeft" />
+                </animateMotion>
+            </circle>
+        </svg>
+    </div>
+</body>
+
+</html>
+
+
+
+
+

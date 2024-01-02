@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Professional Experience</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            color: #f5f5f5;
+            background-color: #2c3e50; 
+        }
+        h1 {
+            padding: 10px;
+            font-size: 2em; 
+            color: #e3e3e3; 
+            text-align: center; 
+            background-color: #34495e;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            border-radius: 15px; 
+            margin: 20px 10%; 
+            animation: fadeIn 2s; 
+        } 
+        .experience-container {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 5%;
+            margin-right: 3%;
+        } 
+        .experience-item {
+            display: flex;
+            margin: 10px;
+            padding-bottom: 10px;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: forwards;
+        }
+        .experience-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .experience-item:nth-child(3) {
+            animation-delay: 1s;
+        }
+        .experience-item:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        .experience-item img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+        .experience-logo {
+            border-right: 1px solid gray;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        .experience-logo a img {
+            transition: all 0.3s ease-in-out; 
+        }
+        .experience-logo a:hover img {
+            transform: scale(1.1);  
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3); 
+        }
+        .experience-details {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8em;
+            color: #ffffff; 
+        }
+        .experience-item-special {
+            position: relative;
+            right: 110px;
+            bottom: 110px;
+            display: flex;
+            opacity: 0;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+        .experience-item, .experience-item-special {
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.05); 
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .experience-item-special img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+        .experience-item-special .experience-logo {
+            border-right: 10px solid gray;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        .experience-item-special .experience-logo a img {
+            transition: all 0.3s ease-in-out;
+        }
+        .experience-item-special .experience-logo a:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        .experience-item-special .experience-details {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8em;
+        }
+        .experience-description {
+            position: relative;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            transform: translateY(0);
+            transition: transform 0.2s ease;
+            background-color: #2c3e50; 
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+            width: fit-content;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .experience-description:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #45627e;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 30%;
+            height: 100%;
+            background-color: #2c3e50;  
+            border-radius: 10px;
+            padding: 20px;
+            overflow: auto;
+            box-sizing: border-box;
+            animation: slideInRight 0.5s ease-out;
+            animation-fill-mode: forwards;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden-popup-content ul li {
+            margin-bottom: 30px;
+            padding-bottom: 28px;
+        }
+        .popup ul li {
+            margin-bottom: 15px; 
+            padding-bottom: 3px; 
+        }
+        .popup h3 {
+            margin-top: 50px;
+            border-bottom: 2px solid #f5a623;  /* Exemple de couleur */
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        body.popup-active {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-button {
+            display: none; 
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #34495e;
+            border-radius: 10px; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #f5f5f5;
+            border-radius: 10px; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <h1>My Professional Experience</h1>
+    <div class="experience-container">
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://sii-group.com/fr-FR" target="_blank">
+                    <img src="SII.png" alt="Logo SII">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>SII - Data Scientist - R&D in NLP</h2>
+                <p>Toulouse (France), Since 06/2023</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    Research Project in NLP for Airbus
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>R&D Project:</h3>
+                    <ul>
+                        <li>
+                            As part of a research and development project dedicated to aviation safety, I work on the implementation of an AI solution based on natural language processing (NLP). In collaboration with Airbus, the main goal was to develop a system capable of automatically generating complex and diversified aircraft incident scenarios.</li>
+                    </ul>
+                    <h3>Missions:</h3>
+                    <ul>
+                        <li>Model Creation and Optimization</li>
+                        <li>Natural Language Processing (NLP)</li>
+                        <li>Data Exploration and Cleaning</li>
+                        <li>Model Performance Analysis</li>
+                        <li>Process Automation</li>
+                        <li>Experimentation and Research</li>
+                    </ul>
+
+                    <h3>Skills:</h3>
+                    <ul>
+                        <li>Deep Understanding of NLP and Machine Learning</li>
+                        <li>Data Analysis and Processing Skills</li>
+                        <li>Problem-Solving and Research</li>
+                    </ul>
+                </div>
+            </div>
+        </div>        
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.centauri-aircraft.com/" target="_blank">
+                    <img src="Centauri.jpg" alt="Logo Centauri">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>Centauri Aircraft - Aeronautical engineer (internship)</h2>
+                <p>San Francisco (USA), 05/2022 - 08/2022</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    Production and engineering of composite parts for aircraft
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>Missions:</h3>
+                    <ul>
+                        <li>Design and development of electric flight control systems for aircraft.</li>
+                        <li>Selection, characterization, and integration of composite materials (wetlayup, prepreg) for aircraft's internal and external structures.</li>
+                        <li>Composite parts design, considering aerodynamic, structural, and safety constraints.</li>
+                        <li>Calculation and analysis of structures to ensure their strength and reliability.</li>
+                        <li>Construction and optimization of specialized ovens for composite materials.</li>
+                    </ul>
+                    <h3>Skills:</h3>
+                    <ul>
+                        <li>Aircraft Systems and Avionics</li>
+                        <li>Composite Materials Engineering</li>
+                        <li>Structural Analysis and Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.roxelgroup.com/" target="_blank">
+                    <img src="Roxel.png" alt="Logo Roxel">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>Roxel - Production engineer (apprenticeship)</h2>
+                <p>Bordeaux (France), 09/2019 - 09/2022</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    Introduction and implementation of new tools and methods in worshops for security, control or maintenance purposes
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>My missions:</h3>
+                        <ul>
+                            <li>Optimization of production processes by identifying existing weaknesses.</li>
+                            <li>Development and implementation of solutions to increase efficiency and profitability.</li>
+                            <li>Utilization of industrial data for making informed strategic decisions.</li>
+                            <li>Use of visualization tools to transform data into actionable insights.</li>
+                            <li>Establishment and execution of training programs to enhance staff skills.</li>
+                            <li>Continuous improvement of industrial performance by reducing costs and fostering process evolution.</li>
+                        </ul>                        
+                        <h3>Skills:</h3>
+                        <ul>
+                            <li>Process analysis and problem-solving.</li>
+                            <li>Data mining and visualization.</li>
+                            <li>Continuous improvement and performance management.</li>
+                        </ul>     
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.ariane.group/fr/" target="_blank">
+                    <img src="AGS.png" alt="Logo AGS">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>ArianeGroup - design office technician (internship)</h2>
+                <p>Bordeaux (France), 04/2019 - 06/2019</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    Design on Catia V5
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>Mission:</h3>
+                        <ul>
+                            <li>Development of a CATIA tool.</li>
+                            <li>Creation of MECAMASTER for the design office, a tool enabling large-scale dimensional chain management.</li>
+                        </ul>
+
+                        <h3>Skills:</h3>
+                        <ul>
+                            <li>CATIA Development </li>
+                            <li>Software Development</li>
+                            <li>Dimensional Chain Management</li>
+                        </ul>
+                </div>
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.pompiers33.fr/" target="_blank">
+                    <img src="pompier.png" alt="pompier">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>Volunteer Firefighter</h2>
+                <p>Bordeaux (France), Since 12/2017</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="popup"></div>
+    </div>
+    </body>
+    <script>
+        window.onload = function() {
+            var popup = document.querySelector(".popup");
+            var descriptions = document.querySelectorAll(".experience-description");
+            document.body.classList.add('popup-active');
+            document.body.classList.remove('popup-active');
+
+            descriptions.forEach(function(description) {
+                description.addEventListener("click", function(e) {
+                    var popupContent = this.nextElementSibling.innerHTML;
+                    if(popupContent) {
+                        popup.innerHTML = popupContent;
+                        popup.style.display = "block";
+                        e.stopPropagation();
+                    }
+                });
+            });
+            
+            document.addEventListener('click', function(event) {
+                var isClickInside = popup.contains(event.target);
+                if (!isClickInside) {
+                    popup.style.display = 'none';
+                }
+            });
+
+            popup.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    </script>                 
+</html>
+
+
+

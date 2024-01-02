@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .page {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem; 
+            position: relative; 
+            background-size: cover;
+            background-position: center;
+        }
+        .page-title {
+            position: absolute; 
+            margin-left: 16.5%; 
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 2px 0;
+            background: linear-gradient(to bottom, rgba(37, 37, 37, 0.7), rgba(130, 130, 130, 0.7));
+            color: #ffffff; 
+            text-align: center; 
+            font-size: 2em; 
+            z-index: 0;
+        }
+        .page-text {
+            position: absolute; 
+            top: 15%;
+            left: 23%; 
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.8); /* blanc avec une légère transparence */
+            border-radius: 20px; /* bords arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* une légère ombre pour donner un effet en relief */
+            color: #000000; /* Texte noir pour être lisible sur un fond blanc */
+            font-size: 0.7em; 
+            z-index: 5; /* Pour s'assurer que le texte apparaît au-dessus d'autres éléments */
+            max-width: 80%; /* Limitez la largeur */
+        }
+        .objective-title {
+            font-weight: bold;
+        }
+        .page-photo {
+            position: absolute;
+            left: 0%;
+            bottom : 50%;
+            top: 0;
+            width: 22%; 
+            background-size: cover; 
+            background-position: center;
+            z-index: 1;
+        }
+        .page-photo-secondary {
+            position: absolute;
+            left: 0; 
+            top: 50%; 
+            bottom: 0;
+            width: 22%;
+            background-size: cover; 
+            background-position: center;
+            z-index: 1;
+        }
+        .photo-container {
+            position: absolute; 
+            top: 30%; /* Ajustez si nécessaire pour positionner correctement sous le texte */
+            left: 25%;
+            right: 5%;
+            display: flex;
+            justify-content: space-between;
+            z-index: 0;
+        }
+        .photo-item {
+            flex: 1;
+            margin: 0 10px; /* Espacement entre les photos */
+            height: 15vw; 
+            background-repeat: no-repeat; /* Assurez-vous que l'image ne se répète pas */
+            background-size: 15vw 15vw; 
+            background-position: center;
+        }
+        .position-img, .engrenages-img {
+            height: 9vw;  
+            background-size: 6.8vw 6vw; 
+            width: 6vw;
+        }
+        .photo-text-container, .engrenage-text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+            height: 249px; 
+        }
+        .photo-text-above {
+            color: #000000; 
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin: 5px 0;
+            padding: 5px 9px; 
+            background-color: #ffffff;
+            border: 2px solid #000000; 
+            border-radius: 8px; 
+            box-shadow: 2px 2px 4px rgba(46, 46, 46, 0.2); 
+        }
+        .photo-text-below {
+            color: #ffffff;
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+        .engrenage-text-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;  
+            justify-content: center; 
+            margin: 0 10px;
+            height: 249px; 
+        }
+        .centered-text {
+            text-align: center;
+            width: 100%;
+        }
+        .arrow-img {
+            position: absolute;
+            width: 40px;  
+            height: 40px; 
+            background-size: cover;
+            z-index: 10;
+        }
+        .centered-text-container {
+            position: absolute;
+            top: 70%;
+            left: 57%;
+            transform: translate(-50%, -50%); /* Pour centrer parfaitement le texte */
+            text-align: center;
+            color: #ffffff; /* Couleur blanche pour le texte, à ajuster si nécessaire */
+            font-size: 1.5rem; 
+            z-index: 5; /* Pour s'assurer que le texte apparaît au-dessus d'autres éléments */
+        }
+        .tools-container {
+            background-color: rgba(255, 255, 255, 0.8); /* blanc avec une légère transparence */
+            padding: 15px 25px; /* espace intérieur autour du contenu */
+            border-radius: 20px; /* bords arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* une légère ombre pour donner un effet en relief */
+            position: absolute; /* Positionnement absolu par rapport à .page */
+            bottom: 3%; /* Distance depuis le bas de la page */
+            left: 45%; /* Distance depuis le côté gauche pour aligner avec les autres éléments */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* ou "center" si vous voulez centrer tout le contenu */
+            color: #ffffff; /* Pour rendre le texte visible s'il est sur un fond sombre */
+            max-width: 80%; /* Limitez la largeur */
+        }
+        .tool-img {
+            width: auto;  /* Permet à l'image de conserver ses proportions */
+            max-width: 5vw; 
+            max-height: 2.5vw;
+            margin: 0 5px; /* espace entre les images */
+        }
+        #page-1 {
+            background-color: #000000;
+        }
+        #page-2 {
+            background-color: #c7c9f9;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="page-1" class="page">
+        <div class="page-photo" style="background-image: url('projet_1_1.PNG');"></div>
+        <div class="page-photo-secondary" style="background-image: url('projet_1_2.PNG');"></div>
+        <div class="page-title">Panomapper</div>      
+        <div class="page-text">
+            <span class="objective-title">Objective:</span> Detecting solar panels via satellite images using deep learning models
+        </div>
+        <div class="photo-container">
+            <div class="photo-text-container">
+                <div class="photo-text-above">User Input</div>
+                <div class="photo-item position-img" style="background-image: url('position.png');"></div>
+                <div class="photo-text-below">Address</div>
+            </div>
+            <div class="arrow-img" style="background-image: url('fleche.png'); left: 20%; top: 40%;"></div>        
+            <div class="photo-item" style="background-image: url('projet_1_3.PNG');"></div>
+            <div class="arrow-img" style="background-image: url('fleche.png'); left: 51%; top: 40%;"></div>
+            <div class="engrenage-text-container">
+                <div class="photo-text-above">
+                    Deep Learning model
+                    <div class="centered-text">CNN + U-NET</div>
+                </div>
+                <div class="photo-item engrenages-img" style="background-image: url('engrenages.png');"></div>
+            </div>
+            <div class="arrow-img" style="background-image: url('fleche.png'); left: 70%; top: 40%;"></div>
+            <div class="photo-item" style="background-image: url('projet_1_4.PNG');"></div>
+        </div>
+        <div class="centered-text-container">
+            Votre texte ici
+        </div>
+        <div class="tools-container">
+            <div class="tools-images">
+                <img src="python.png" alt="Tool 1" class="tool-img">
+                <img src="google.png" alt="Tool 2" class="tool-img">
+                <img src="deeplearning.png" alt="Tool 3" class="tool-img">
+                <img src="streamlit.png" alt="Tool 4" class="tool-img">
+                <img src="geojson.png" alt="Tool 4" class="tool-img">
+            </div>
+        </div>  
+    </div>
+    <div id="page-2" class="page" style="background-image: url('chemin_vers_votre_photo2.jpg');">
+        <div class="page-title">Titre du Projet 2</div>
+    </div>
+    <script>
+        let lastScrollDirection = null;
+        let isAnimating = false;
+
+        function scrollNextPage() {
+            const nextPage = $('.page:visible').next();
+            if (nextPage.length) {
+                isAnimating = true;
+                $('html, body').animate({
+                    scrollTop: nextPage.offset().top
+                }, 1000, function() {
+                    isAnimating = false;
+                });
+            }
+        }
+
+        function scrollPrevPage() {
+            const prevPage = $('.page:visible').prev();
+            if (prevPage.length) {
+                isAnimating = true;
+                $('html, body').animate({
+                    scrollTop: prevPage.offset().top
+                }, 1000, function() {
+                    isAnimating = false;
+                });
+            }
+        }
+
+        function debounce(func, wait = 20, immediate = true) {
+            let timeout;
+            return function() {
+                let context = this, args = arguments;
+                let later = function() {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                };
+                let callNow = immediate && !timeout;
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+                if (callNow) func.apply(context, args);
+            };
+        }
+
+        $(window).on('wheel', debounce(function(e) {
+            if (!isAnimating) {
+                const scrollDirection = Math.sign(e.originalEvent.deltaY);
+                if (scrollDirection !== lastScrollDirection) {
+                    lastScrollDirection = scrollDirection;
+                    if (scrollDirection > 0) {
+                        scrollNextPage();
+                    } else {
+                        scrollPrevPage();
+                    }
+                }
+            }
+        }, 10));
+    </script>
+</body>
+</html>
+
+
+

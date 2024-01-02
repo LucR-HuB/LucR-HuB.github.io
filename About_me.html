@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            background-color: #EAF0F1;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2%;
+            box-sizing: border-box;
+            background: #58B19F;
+            border-radius: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 2%;
+        }
+
+        .photo-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #333;
+            margin-right: 3%;
+        }
+
+        .text-container {
+            width: 60%;
+            font-size: 1.2rem;
+            padding: 1%;
+            background: #FFF;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 2%;
+            left: 2%;
+            padding: 0.5rem 1rem;
+            background-color: #2C3E50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-button:hover {
+            background-color: #1A242F;
+        }
+
+        .quote {
+            font-size: 2rem;
+            color: #F39C12;
+        }
+
+        .quote-left {
+            position: absolute;
+            top: -10px;
+            left: -25px;
+        }
+
+        .quote-right {
+            position: absolute;
+            bottom: -10px;
+            right: -25px;
+        }
+
+        .interests-section {
+            text-align: center;
+            background: #FFF;
+            border-radius: 10px;
+            flex-grow: 1;
+        }
+
+        .interests-section h2 {
+            font-size: 1.8rem;
+            margin: 1%;
+            color: #58B19F;
+        }
+
+        .interests-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 5%;
+            flex-wrap: wrap;
+            padding-bottom: 2%;
+        }
+
+        .interest-box {
+            width: 20%;
+            text-align: center;
+            margin: 1%;
+            padding: 1%;
+        }
+
+        .interest-box img {
+            height: 80px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .interest-box img:hover {
+            transform: scale(1.1);
+        }
+
+        .interest-box p {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            color: #555;
+        }
+
+    </style>
+</head>
+
+<body>
+    <a href="portfolio_2.html" class="home-button">Home</a>
+    <div class="content">
+        <div class="photo-container">
+            <img src="photo_de_profil.jpg" alt="Photo de profil">
+        </div>
+        <div class="text-container">
+            <span class="quote quote-left">&ldquo;</span>
+            <p>Ceci est un exemple de texte pour votre page "À propos de moi". Vous pouvez ajouter autant de détails que vous le souhaitez ici pour donner aux visiteurs de votre portfolio une meilleure idée de qui vous êtes et de ce que vous faites.</p>
+            <span class="quote quote-right">&rdquo;</span>
+        </div>
+    </div>
+    <div class="interests-section">
+        <h2>My Interests</h2>
+        <div class="interests-container">
+            <div class="interest-box">
+                <img src="sport.png" alt="Interest 1">
+                <p>Sport</p>
+                <p>Tennis, Gym, Football</p>
+            </div>
+            <div class="interest-box">
+                <img src="voyage.png" alt="Interest 2">
+                <p>Voyages</p>
+                <p>USA, Canada, Singapor</p>
+            </div>
+            <div class="interest-box">
+                <img src="aviation.png" alt="Interest 3">
+                <p>Aviation</p>
+                <p>Private pilot license in progress</p>
+            </div>
+            <div class="interest-box">
+                <img src="chess.png" alt="Interest 4">
+                <p>Chess</p>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+    <div class="photo-container">
+        <img src="photo_de_profil.jpg" alt="Photo de profil">
+    </div>
+    <div class="text-container">
+        <span class="quote quote-left">&ldquo;</span>
+        <p>Ceci est un exemple de texte pour votre page "À propos de moi". Vous pouvez ajouter autant de détails que vous le souhaitez ici pour donner aux visiteurs de votre portfolio une meilleure idée de qui vous êtes et de ce que vous faites.</p>
+        <span class="quote quote-right">&rdquo;</span>
+    </div>
+</div>
+<div class="interests-section">
+    <h2>My Interests</h2>
+    <div class="interests-container">
+        <div class="interest-box">
+            <img src="sport.png" alt="Interest 1">
+            <p>Sport</p>
+            <p>Tennis, Gym, Football</p>
+        </div>
+        <div class="interest-box">
+            <img src="voyage.png" alt="Interest 2">
+            <p>Voyages</p>
+            <p>USA, Canada, Singapor</p>
+        </div>
+        <div class="interest-box">
+            <img src="aviation.png" alt="Interest 3">
+            <p>Aviation</p>
+            <p>Private pilot license in progress</p>
+        </div>
+        <div class="interest-box">
+            <img src="chess.png" alt="Interest 4">
+            <p>Chess</p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+
+
+
+

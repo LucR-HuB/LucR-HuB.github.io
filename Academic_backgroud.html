@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Background</title>
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #2c3e50; 
+            color: #f5f5f5;
+        }
+        h1 {
+            padding: 10px;
+            font-size: 2em;
+            color: #e3e3e3;
+            text-align: center;
+            background-color: #34495e;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            border-radius: 15px;
+            margin: 20px 10%;
+            animation: fadeIn 2s;
+        }
+        .experience-container {
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 5%;
+            margin-right: 3%;
+        } 
+        .experience-item {
+            display: flex;
+            margin: 10px;
+            padding-bottom: 10px;
+            opacity: 0; 
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: forwards;
+        }
+        .experience-item:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        .experience-item:nth-child(3) {
+            animation-delay: 1s;
+        }
+        .experience-item:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        .experience-item img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+        .experience-logo {
+            border-right: 1px solid gray;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+        .experience-logo a img {
+            transition: all 0.3s ease-in-out;
+        }
+        .experience-logo a:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        .experience-details {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8em;
+            color: #ffffff; 
+        }
+        .experience-item-special {
+            position: relative;
+            right: 110px;
+            bottom: 110px;
+            display: flex;
+            opacity: 0;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: forwards;
+            animation-delay: 2s;
+        }
+        .experience-item-special img {
+            width: 75px;
+            height: 75px;
+            object-fit: contain;
+        }
+        .experience-item, .experience-item-special {
+            border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.05); 
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .experience-item-special .experience-logo a img {
+            transition: all 0.3s ease-in-out;
+        }
+        .experience-item-special .experience-logo a:hover img {
+            transform: scale(1.1);
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        .experience-item-special .experience-details {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.8em;
+        }
+        .experience-description {
+            position: relative;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border: none;
+            transform: translateY(0);
+            transition: transform 0.2s ease;
+            background-color: #2c3e50; 
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+            cursor: pointer;
+            width: fit-content;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .experience-description:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #45627e;
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 30%;
+            height: 100%;
+            background-color: #2c3e50;  
+            border-radius: 10px;
+            padding: 20px;
+            overflow: auto;
+            box-sizing: border-box;
+            animation: slideInRight 0.5s ease-out;
+            animation-fill-mode: forwards;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .hidden-popup-content ul li {
+            margin-bottom: 30px; 
+            padding-bottom: 28px;
+        }
+        .popup ul li {
+            margin-bottom: 15px; 
+            padding-bottom: 3px; 
+        }
+        .popup h3 {
+            margin-top: 50px;
+        }
+        .popup h3 {
+            margin-top: 50px;
+            border-bottom: 2px solid #f5a623;  /* Exemple de couleur */
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        body.popup-active {
+            filter: blur(5px);
+            pointer-events: none;
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-button {
+            display: none; 
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #34495e;
+            border-radius: 10px; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #f5f5f5;
+            border-radius: 10px; 
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #bdc3c7;
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <h1>Academic Background</h1>
+    <div class="experience-container">
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.lewagon.com/fr/data-science-course" target="_blank">
+                    <img src="Wagon.png" alt="Logo Le Wagon">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>Le Wagon</h2>
+                <p>Bordeaux (France), 01/2023 - 04/2023</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    Data Science Training
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>Curriculum:</h3>
+                    <ul>
+                        <li><strong>Python Programming</strong>: Mastery of Python programming, data structures, and libraries</li>
+                        <li><strong>Data Manipulation and Analysis</strong>: Advanced techniques for data cleaning, preprocessing, and exploratory data analysis</li>
+                        <li><strong>Machine Learning</strong>: Proficiency in machine learning algorithms and techniques</li>
+                        <li><strong>Deep Learning</strong>: In-depth knowledge and practical experience with neural networks, deep learning architectures</li>
+                        <li><strong>Statistical Analysis</strong>: In-depth understanding and application of statistical concepts</li>
+                        <li><strong>Big Data and SQL</strong>: Proficient in working with large datasets and mastering SQL for querying databases</li>
+                        <li><strong>Data Engineering</strong>: Advanced knowledge of data pipelines, data storage, and managing data flows</li>
+                        <li><strong>Real-world Projects</strong>: Extensive hands-on experience in working on complex data science projects from start to finish</li>
+                    </ul>
+                </div>
+            </div>
+        </div>        
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.eigsi.fr/" target="_blank">
+                    <img src="EIGSI.png" alt="Logo EIGSI">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>EIGSI - Engineer School</h2>
+                <p>La Rochelle (France), 09/2019 - 09/2022</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    Generalist Industrial Systems Engineering School
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>Curriculum:</h3>
+                    <ul>
+                        <li><strong>Engineering Fundamentals</strong>: Learning the basics of engineering, fundamental sciences, and principles of industrial engineering</li>
+                        <li><strong>Computer Science and Programming</strong>: Mastering computer science and programming, including commonly used languages in the field, data structures, and algorithms</li>
+                        <li><strong>Industrial Project Management</strong>: Techniques for managing industrial projects, planning, monitoring, and coordinating resources</li>
+                        <li><strong>Analysis and Modeling Methods</strong>: Learning analysis and modeling methods to solve complex problems in industrial engineering</li>
+                        <li><strong>Automation and Systems Control</strong>: Studying automated systems and control techniques to optimize industrial processes</li>
+                        <li><strong>Information Systems and Databases</strong>: In-depth knowledge of information systems, database management, and information technology for process optimization</li>
+                        <li><strong>Industrial Engineering and Logistics</strong>: Understanding principles of industrial engineering and logistics to enhance supply chain and production efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://iut-angouleme.univ-poitiers.fr/" target="_blank">
+                    <img src="IUT.png" alt="Logo IUT">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>IUT GMP</h2>
+                <p>Angoulême (France), 09/2017 - 05/2019</p>
+                <div class="experience-description">
+                    <i class="fas fa-plus-circle"></i>
+                    University and Technological Diploma in Mechanical and Production Engineering
+                </div>
+                <div class="hidden-popup-content" style="display: none;">
+                    <h3>Curriculum:</h3>
+                        <ul>
+                            <li><strong>Mechanical Design</strong>: Learning principles of mechanical design, drafting, and computer-aided design (CAD) tools.</li>
+                            <li><strong>Materials and Manufacturing Processes</strong>: Understanding different materials used in engineering and various manufacturing techniques</li>
+                            <li><strong>Mechanical Systems and Components</strong>: Studying mechanical systems, components, and mechanisms used in various industries</li>
+                            <li><strong>Thermodynamics and Heat Transfer</strong>: Learning the basics of thermodynamics, heat transfer, and energy systems</li>
+                            <li><strong>Fluid Mechanics</strong>: Understanding fluid behavior and principles of fluid mechanics in engineering applications</li>
+                            <li><strong>Control and Automation</strong>: Introduction to control systems and automation in manufacturing and industrial processes</li>
+                            <li><strong>Quality Management</strong>: Exploring quality control and management principles to ensure product quality and process efficiency</li>
+                            <li><strong>Industrial Project Management</strong>: Techniques for managing engineering projects, planning, and coordinating resources</li>
+                            <li><strong>Computer-Aided Manufacturing (CAM)</strong>: Utilizing computer software to aid in manufacturing and production processes</li>
+                        </ul>                        
+                </div>
+            </div>
+        </div>
+        <div class="experience-item">
+            <div class="experience-logo">
+                <a href="https://www.ariane.group/fr/" target="_blank">
+                    <img src="Bac.jpg" alt="Logo AGS">
+                </a>
+            </div>
+            <div class="experience-details">
+                <h2>High school diploma - Scientific</h2>
+                <p>Bordeaux (France), 07/2017</p>
+            </div>
+        </div>
+        <div class="popup"></div>
+    </div>
+    </body>
+    <script>    
+    window.onload = function() {
+        var popup = document.querySelector(".popup");
+        var descriptions = document.querySelectorAll(".experience-description");
+        
+        descriptions.forEach(function(description) {
+            description.addEventListener("click", function(e) {
+                var popupContent = this.nextElementSibling.innerHTML;
+                popup.innerHTML = popupContent;
+                popup.style.display = "block";
+                e.stopPropagation(); 
+            });
+        });       
+        document.addEventListener('click', function(event) {
+            var isClickInside = popup.contains(event.target);
+            if (!isClickInside) {
+                popup.style.display = 'none';
+            }
+        });
+        popup.addEventListener('click', function(e) {
+            e.stopPropagation(); 
+        });
+    }
+    </script>                 
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Portfolio</title>
+    <style>
+        @keyframes fadein {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        #typewriter {
+            border-right: 2px solid #fff;
+            animation: blink 0.5s infinite;
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to bottom right, #000000, #8f8d8d);
+            color: #fff; 
+        }
+        .main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            color: #fff; 
+            position: relative;
+        }
+        .intro {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .photo-de-profil {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .intro-text {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px; 
+        }
+        .title {
+            font-size: 60px;
+            margin-top: 30px;
+            margin-bottom: 0;
+        }
+        .sub-title {
+            font-size: 40px;
+            margin-top: 0; 
+        }
+        .links-box {
+            display: flex;
+            gap: 5px;
+            margin-top: -20px;
+        }
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 30px;
+            background-color: #444;
+            border-radius: 5px;
+            padding: 5px;
+            transition: background-color 0.3s;
+            animation: fadein 0.5s;
+            animation-fill-mode: backwards;
+        }
+
+        .link-item:nth-child(1) { 
+            animation-delay: 1.5s; 
+        }
+
+        .link-item:nth-child(2) { 
+            animation-delay: 1.5s; 
+        }
+
+        .link-item:hover {
+            background-color: #666;
+        }
+        .link-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        .link-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .quote {
+            width: 50%;
+            text-align: center;
+            align-self: flex-start;
+            font-size: 25px;
+            line-height: 1.4;
+            margin-top: 110px;
+            margin-bottom: 70px;
+            margin-left: 5%;
+            position: absolute;
+        }
+        .quote-and-links {
+            width: 70%;
+            margin-left: 10%;
+            margin-bottom: 70px;
+        }
+        .quote-mark {
+            display: none;
+            font-size: 2em;
+            position: absolute;
+        }
+        #quote-mark-start {
+            left: -10px;
+        }
+        #quote-mark-end {
+            right: -10px;
+        }
+        .bottom-links {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 250px;
+            position: absolute;
+            bottom: 20%;
+            width: 60%;
+        }
+        .bottom-link-item {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #444;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-size: 20px;
+            animation: fadein 0.5s;
+            animation-fill-mode: backwards;
+        }
+        .bottom-link-item:hover {
+            background-color: #666;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .skills-container {
+            position: fixed;
+            right: 90px;
+            top: 20%;
+            width: 312.5px; 
+            font-size: 22.5px; 
+        }
+        .skills-container h2 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .skills-container li {
+            margin-bottom: 10px;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 2px solid #aaa;
+            border-radius: 5px;
+            padding: 12.5px;
+            width: 312.5px; 
+            height: 50px; 
+            animation: fadein 0.5s;
+            animation-fill-mode: backwards;  
+        }
+        .skills-container li a {
+            display: block; 
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 22.5px; 
+        }
+        .skills-container li span {
+            font-size: 8.5px; 
+            color: #aaa;
+            margin-top: 6.25px; 
+        }
+        .skills-container li:nth-child(1) { animation-delay: 0.25s; }
+        .skills-container li:nth-child(2) { animation-delay: 0.5s; }
+        .skills-container li:nth-child(3) { animation-delay: 0.75s; }
+        .skills-container li:nth-child(4) { animation-delay: 1s; }
+        .bottom-link-item:nth-child(1) { animation-delay: 0.25s; }
+        .bottom-link-item:nth-child(2) { animation-delay: 0.625s; }
+        .bottom-link-item:nth-child(3) { animation-delay: 1s; }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="intro">
+            <img class="photo-de-profil" src="Photo_de_profil.jpg" alt="Your photo" />
+            <div class="intro-text">
+                <h1 class="title">Hi, I'm Luc,</h1>
+                <h2 class="sub-title" id="subtitle"></h2>
+                <div class="links-box">
+                    <div class="link-item">
+                        <img src="github.png" alt="GitHub logo" />
+                        <a href="https://github.com/LucR-HuB" target="_blank">GitHub</a>
+                    </div>
+                    <div class="link-item">
+                        <img src="linkedin.png" alt="LinkedIn logo" />
+                        <a href="https://www.linkedin.com/in/luc-rolland-221233254/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-container">
+            <h2>Skills:</h2>
+            <ul>
+                <li>
+                    <a href="#machine-and-deep-learning">
+                        Machine and Deep Learning<br>
+                        <span>click for more informations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#python-sql-js">
+                        Python, SQL, JS<br>
+                        <span>click for more informations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#data-analyse-visualisation">
+                        Data Analyse/Visualisation<br>
+                        <span>click for more informations</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#soft-skills">
+                        Soft Skills<br>
+                        <span>click for more informations</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="quote-and-links">
+            <p class="quote" id="quoteContainer"><span id="typewriter"></span></p>
+            <div class="bottom-links">
+                <a class="bottom-link-item" href="#projects">Projects</a>
+                <a class="bottom-link-item" href="professional_experience.html" target="_blank">My professional experience</a>
+                <a class="bottom-link-item" href="Academic_backgroud.html" target="_blank">Academic background</a>
+
+            </div>
+        </div>      
+    </div>
+    <script>
+        var txt = '"Hello, my name is Luc Rolland. At 23, I have a passion for data science. This site is a showcase of my skills, professional and academic experiences, and also my projects. Enjoy your visit!"';
+;
+        var i = 0;
+        var speed = 32;
+        var errorChance = 0.02;  // 3% chance to make an error on each letter
+        var errorLength = 3;  // number of extra letters to type when an error is made
+    
+        var subtitleText = 'Engineer & Data Scientist';
+        var k = 0;
+    
+        function typeWriter(callback) {
+            if (i < txt.length) {
+                if (Math.random() < errorChance) {
+                    var errorLetters = '';
+                    for (var j = 0; j < errorLength; j++) {
+                        errorLetters += getRandomLetter();
+                    }
+                    typeString(errorLetters, function() {
+                        deleteString(errorLetters.length, function() {
+                            typeLetter(callback);
+                        });
+                    });
+                } else {
+                    typeLetter(callback);
+                }
+            }
+        }
+    
+        function typeLetter(callback) {
+            document.getElementById("typewriter").innerHTML += txt.charAt(i);
+            i++;
+            if (i < txt.length) {
+                setTimeout(() => typeWriter(callback), speed);
+            } else if (callback) {
+                setTimeout(callback, 2000);  // Here we add a delay of 5000ms (or 5 seconds)
+            }
+        }
+
+        function typeSubtitle(callback) {
+            if (k < subtitleText.length) {
+                typeSubtitleLetter(callback);
+            }
+        }
+    
+        function typeSubtitleLetter(callback) {
+            document.getElementById("subtitle").innerHTML += subtitleText.charAt(k);
+            k++;
+            if (k < subtitleText.length) {
+                setTimeout(() => typeSubtitle(callback), 40);
+            } else if (callback) {
+                setTimeout(callback, 40);
+            }
+        }
+        function getRandomLetter() {
+            var alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            return alphabet[Math.floor(Math.random() * alphabet.length)];
+        }
+
+        function typeString(str, callback) {
+            var j = 0;
+            var typeNextLetter = function() {
+                if (j < str.length) {
+                    document.getElementById("typewriter").innerHTML += str.charAt(j);
+                    j++;
+                    setTimeout(typeNextLetter, speed);
+                } else if (callback) {
+                    setTimeout(callback, speed);
+                }
+            };
+            typeNextLetter();
+        }
+
+        function deleteString(length, callback) {
+            var deleteNextLetter = function() {
+                if (length > 0) {
+                    var str = document.getElementById("typewriter").innerHTML;
+                    document.getElementById("typewriter").innerHTML = str.substring(0, str.length - 1);
+                    length--;
+                    setTimeout(deleteNextLetter, speed);
+                } else if (callback) {
+                    setTimeout(callback, speed);
+                }
+            };
+            deleteNextLetter();
+        }
+        function generateQuote() {
+            document.getElementById("typewriter").innerHTML = quote;
+            document.getElementById("quote-mark-start").style.display = 'block';
+            document.getElementById("quote-mark-end").style.display = 'block';
+        }
+        window.onload = function() {
+            typeSubtitle(() => {
+                setTimeout(() => {
+                    typeWriter(() => {
+                        setTimeout(generateQuote, 500);
+                    });
+                }, 500); // Wait for 3 seconds after the subtitle is typed to start typing the main text
+            });
+            document.querySelector('.title').style.opacity = '1';
+        }
+    </script>    
+</body> 
+</html>
